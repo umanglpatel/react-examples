@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from '../components/Persons/Person/Person';
+import Persons from '../components/Persons/Persons';
 
 class App extends Component {
 
@@ -40,21 +40,6 @@ class App extends Component {
     this.setState({ persons: persons });
   }
 
-  renderPerson = () => {
-    return (
-      <div>
-        {this.state.persons.map((person, index) => {
-          return <Person
-            name={person.name}
-            age={person.age}
-            click={() => this.deletePerson(index)}
-            changed={(event) => this.nameChangedHandler(event, person.id)}
-            key={person.id} />
-        })}
-      </div>
-    );
-  }
-
   render() {
 
     const style = {
@@ -67,7 +52,15 @@ class App extends Component {
 
     let persons = null;
     if (this.state.showPersons) {
-      persons = this.renderPerson();
+
+      persons = (
+        <div>
+          <Persons persons={this.state.persons}
+            clicked={this.deletePerson}
+            changed={this.nameChangedHandler} />
+        </div>
+      );
+
       style.backgroundColor = 'red';
     }
 
