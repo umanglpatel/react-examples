@@ -55,6 +55,7 @@ class App extends Component {
     return (
       <div className={classes.App} >
         <Cockpit
+          appTitle={this.props.title} // apptitle passed as props in stateful component
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           clicked={this.togglePersonsHandler} />
