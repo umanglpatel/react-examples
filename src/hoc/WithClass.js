@@ -8,4 +8,14 @@ const withClass = (props) => {
     )
 }
 
+const usingClass = (WrappedComponent, className) => {
+    return (props) => (
+        <div className={className}>
+            <WrappedComponent />
+        </div>
+    )
+}
+
 export default withClass;
+export { usingClass };
+
