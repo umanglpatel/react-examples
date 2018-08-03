@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import classes from './Cockpit.css';
-import AppAux from '../../hoc/AppAux';
+// import AppAux from '../../hoc/AppAux'; 
+// react 16 and later provides this inbuilt called Fragment
 
 const cockpit = (props) => {
 
@@ -18,11 +19,11 @@ const cockpit = (props) => {
     }
 
     return (
-        <AppAux>
+        <Fragment>
             <h1> {props.appTitle} </h1>
             <p className={assignedClasses.join(' ')}> this is really working! </p>
             <button className={btnClass} onClick={props.clicked} > Toggle Persons </button>
-        </AppAux>
+        </Fragment>
     );
 }
 
